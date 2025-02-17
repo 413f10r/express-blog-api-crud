@@ -122,7 +122,7 @@ function update(req, res) {
 function modify(req, res) {
     res.send('Modifica parziale del post ' + req.params.id);
 };
-// destroy
+// destroy  y
 function destroy(req, res) {
     // res.send('Eliminazione del post ' + req.params.id);
 

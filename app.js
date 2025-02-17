@@ -26,10 +26,17 @@ const port = 3000; //porta ns server
 //leggere la cartella post router
 const postRouter = require("./routers/postRouter");
 
+const errorsHandler = require("./middlewares/errorsHandler")
+const notFound = require("./middlewares/notFound")
 
-app.use(express.static('public'));
+app.use(express.static('public')); // per file statici
 app.use(express.json())//dati in formato json
-app.use("/posts", postRouter);
+app.use("/posts", postRouter); //richiamare le API 
+
+
+app.use(notFound) // erorri nelle rotte 
+app.use(errorsHandler) // i possibili errori dell'applicazione.
+
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
