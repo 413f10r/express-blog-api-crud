@@ -22,6 +22,7 @@
 const express = require("express"); // import express
 const app = express(); //express funzione diventa una variabile
 const port = 3000; //porta ns server
+const cors = require("cors")
 
 //leggere la cartella post router
 const postRouter = require("./routers/postRouter");
@@ -43,5 +44,7 @@ app.listen(port, () => {
 });
 
 
-
+app.use(cors({
+    origin : "http://localhost:5173"
+}))
 
