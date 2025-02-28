@@ -30,6 +30,11 @@ const postRouter = require("./routers/postRouter");
 const errorsHandler = require("./middlewares/errorsHandler")
 const notFound = require("./middlewares/notFound")
 
+
+app.use(cors({
+    origin: "http://localhost:5173"
+}))
+
 app.use(express.static('public')); // per file statici
 app.use(express.json())//dati in formato json
 app.use("/posts", postRouter); //richiamare le API 
@@ -39,12 +44,12 @@ app.use(notFound) // erorri nelle rotte
 app.use(errorsHandler) // i possibili errori dell'applicazione.
 
 
+
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
 
 
-app.use(cors({
-    origin : "http://localhost:5173"
-}))
+
 

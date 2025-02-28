@@ -1,8 +1,4 @@
 const arrayPosts = require("../data/postData");
-
-
-
-
 // index
 function index(req, res) {
     // res.json(posts)
@@ -15,7 +11,6 @@ function index(req, res) {
         filteredPosts = arrayPosts.filter(post => {
             return post.tags.includes(req.query.tags)
         })
-
     }
     res.json(filteredPosts);
 }
